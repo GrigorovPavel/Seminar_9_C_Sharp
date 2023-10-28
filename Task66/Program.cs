@@ -5,17 +5,17 @@
 // M=1, N = 15 -> 120
 // M=4, N = 8 -> 30
 
-int SumNumbers(int numM, int numN) 
+int SumNumbers(int numM, int numN)
 {
-    if(numM > numN)
-    { 
+    if (numM > numN)
+    {
         return numN + SumNumbers(numN + 1, numM);
     }
-    else if(numM < numN)
+    else if (numM < numN)
     {
         return numM + SumNumbers(numM + 1, numN);
     }
-    else 
+    else
     {
         Console.WriteLine(numM);
     }
@@ -28,5 +28,11 @@ int numberA = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите второе натуральное число:");
 int numberB = Convert.ToInt32(Console.ReadLine());
 
-int res = SumNumbers(numberA, numberB); 
+if (numberA < 1 || numberB < 1)
+{
+    Console.Write("Некорректный ввод");
+    return;
+}
+
+int res = SumNumbers(numberA, numberB);
 Console.WriteLine($"Сумма чисел от {numberA} до {numberB} -> {res}");
